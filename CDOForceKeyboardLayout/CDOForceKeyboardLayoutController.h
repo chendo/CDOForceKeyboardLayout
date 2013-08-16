@@ -13,12 +13,10 @@
 
 @interface CDOForceKeyboardLayoutController : NSObject
 
-- (void)setForceKeyboardLayout:(CDOKeyboardLayout *)layout;
-- (CDOKeyboardLayout *)forceKeyboardLayout;
-- (NSArray *)availableKeyboardLayouts;
-
 - (BOOL)activate;
 - (BOOL)deactivate;
 
+@property (assign, nonatomic) CDOKeyboardLayout *forceKeyboardLayout;
+@property (retain, nonatomic) NSArray *availableKeyboardLayouts;
 
 @end

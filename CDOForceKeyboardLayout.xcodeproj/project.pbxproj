@@ -20,10 +20,11 @@
 		58B17A2617BDCB230084CBA3 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 58B17A2417BDCB230084CBA3 /* Credits.rtf */; };
 		58B17A2917BDCB230084CBA3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B17A2817BDCB230084CBA3 /* AppDelegate.m */; };
 		58B17A2C17BDCB230084CBA3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58B17A2A17BDCB230084CBA3 /* MainMenu.xib */; };
-		58B17A3117BDD7490084CBA3 /* libCDOForceKeyboardLayout.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B179E117BB32C20084CBA3 /* libCDOForceKeyboardLayout.a */; };
 		58B17A3317BDD7DF0084CBA3 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B17A0D17BB35C00084CBA3 /* Carbon.framework */; };
 		58B17A3917BDDC440084CBA3 /* CDOKeyboardLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B17A3717BDDC440084CBA3 /* CDOKeyboardLayout.h */; };
 		58B17A3A17BDDC440084CBA3 /* CDOKeyboardLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B17A3817BDDC440084CBA3 /* CDOKeyboardLayout.m */; };
+		58B17A3B17BDF8150084CBA3 /* CDOForceKeyboardLayoutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B179EE17BB32C20084CBA3 /* CDOForceKeyboardLayoutController.m */; };
+		58B17A3C17BDF8180084CBA3 /* CDOKeyboardLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B17A3817BDDC440084CBA3 /* CDOKeyboardLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +98,6 @@
 			files = (
 				58B17A1617BDCB230084CBA3 /* Cocoa.framework in Frameworks */,
 				58B17A3317BDD7DF0084CBA3 /* Carbon.framework in Frameworks */,
-				58B17A3117BDD7490084CBA3 /* libCDOForceKeyboardLayout.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +365,8 @@
 			files = (
 				58B17A2217BDCB230084CBA3 /* main.m in Sources */,
 				58B17A2917BDCB230084CBA3 /* AppDelegate.m in Sources */,
+				58B17A3B17BDF8150084CBA3 /* CDOForceKeyboardLayoutController.m in Sources */,
+				58B17A3C17BDF8180084CBA3 /* CDOKeyboardLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

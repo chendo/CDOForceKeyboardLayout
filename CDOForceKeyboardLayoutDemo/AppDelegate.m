@@ -15,4 +15,14 @@
     // Insert code here to initialize your application
 }
 
+- (IBAction)activate:(id)sender
+{
+    [self.forceKeyboardLayoutController activate];
+}
+
+- (IBAction)deactivate:(id)sender
+{
+    [self.forceKeyboardLayoutController deactivate];
+}
+
 @end

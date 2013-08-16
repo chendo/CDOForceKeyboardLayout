@@ -7,9 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "CDOForceKeyboardLayoutController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet CDOForceKeyboardLayoutController* forceKeyboardLayoutController;
+
 
 @end
