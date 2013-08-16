@@ -6,8 +6,14 @@
  * file that was distributed with this source code.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
 
-@interface CDOForceKeyboardLayoutTests : SenTestCase
+#import <Carbon/Carbon.h>
+
+@interface CDOKeyboardLayout : NSObject
+
+- (instancetype)initWithInputSource:(TISInputSourceRef)inputSource;
+- (NSString *)label;
+
+@property (nonatomic, assign) TISInputSourceRef inputSource;
 
 @end

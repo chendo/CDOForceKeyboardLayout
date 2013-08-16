@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <Carbon/Carbon.h>
 
+@class CDOKeyboardLayout;
+
 @interface CDOForceKeyboardLayoutController : NSObject
 
-- (void)setForceKeyboardLayout:(TISInputSourceRef)layout;
-- (TISInputSourceRef)forceKeyboardLayout;
+- (void)setForceKeyboardLayout:(CDOKeyboardLayout *)layout;
+- (CDOKeyboardLayout *)forceKeyboardLayout;
 - (NSArray *)availableKeyboardLayouts;
 
 - (BOOL)activate;

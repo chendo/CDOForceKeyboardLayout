@@ -7,6 +7,7 @@
  */
 
 #import "CDOForceKeyboardLayoutController.h"
+#import "CDOKeyboardLayout.h"
 
 @interface CDOForceKeyboardLayoutController () {
     TISInputSourceRef savedKeyboardLayout;
@@ -26,15 +27,15 @@ static NSString* const kCDOForceKeyboardLayoutDefaultsKey = @"ForceKeyboardLayou
     return self;
 }
 
-- (void)setForceKeyboardLayout:(TISInputSourceRef)layout
+- (void)setForceKeyboardLayout:(CDOKeyboardLayout *)layout
 {
-    NSString *inputSourceID = (__bridge NSString *)TISGetInputSourceProperty(layout, kTISPropertyInputSourceID);
+    NSString *inputSourceID = (__bridge NSString *)TISGetInputSourceProperty(layout.inputSource, kTISPropertyInputSourceID);
 
     [[NSUserDefaults standardUserDefaults] setObject:inputSourceID forKey:kCDOForceKeyboardLayoutDefaultsKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (TISInputSourceRef)forceKeyboardLayout
+- (CDOKeyboardLayout *)forceKeyboardLayout
 {
     NSString *inputSourceID = [[NSUserDefaults standardUserDefaults] objectForKey:kCDOForceKeyboardLayoutDefaultsKey];
     
@@ -48,14 +49,11 @@ static NSString* const kCDOForceKeyboardLayoutDefaultsKey = @"ForceKeyboardLayou
     if (layouts.count == 0) {
         return NULL;
     }
-    else if (layouts.count == 1) {
-        return (TISInputSourceRef)CFBridgingRetain(layouts[0]);
-    }
-    else {
+    else if (layouts.count > 1) {
         // Somehow we have multiple matching layouts
         NSLog(@"ForceKeyboardLayout: Managed to find multiple layouts with InputModeID %@, using first found", inputSourceID);
-        return (TISInputSourceRef)CFBridgingRetain(layouts[0]);
     }
+    return [[CDOKeyboardLayout alloc] initWithInputSource:(TISInputSourceRef)CFBridgingRetain(layouts[0])];
 }
 
 - (NSArray *)availableKeyboardLayouts
@@ -66,9 +64,15 @@ static NSString* const kCDOForceKeyboardLayoutDefaultsKey = @"ForceKeyboardLayou
                                                   }
 
                                                   );
-    CFArrayRef layouts = TISCreateInputSourceList(properties, NO);
+    NSArray *layouts = CFBridgingRelease(TISCreateInputSourceList(properties, NO));
     CFRelease(properties);
-    return CFBridgingRelease(layouts);
+    
+    NSMutableArray *layoutModels = [NSMutableArray arrayWithCapacity:layouts.count];
+    
+    [layouts enumerateObjectsUsingBlock:^(id inputSource, NSUInteger idx, BOOL *stop) {
+        [layoutModels addObject:[[CDOKeyboardLayout alloc] initWithInputSource:(__bridge TISInputSourceRef)(inputSource)]];
+    }];
+    return layoutModels;
 }
 
 - (BOOL)activate
@@ -79,7 +83,7 @@ static NSString* const kCDOForceKeyboardLayoutDefaultsKey = @"ForceKeyboardLayou
     }
     savedKeyboardLayout = TISCopyCurrentKeyboardInputSource(); // TODO: Investigate difference between this and TISCopyCurrentKeyboardLayoutInputSource
     
-    OSStatus status = TISSelectInputSource([self forceKeyboardLayout]);
+    OSStatus status = TISSelectInputSource([self forceKeyboardLayout].inputSource);
     if (status == noErr) {
         return YES;
     }

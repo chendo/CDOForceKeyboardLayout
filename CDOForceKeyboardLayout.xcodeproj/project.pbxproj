@@ -14,10 +14,27 @@
 		58B17A0417BB32C20084CBA3 /* CDOForceKeyboardLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B17A0317BB32C20084CBA3 /* CDOForceKeyboardLayoutTests.m */; };
 		58B17A0E17BB35C00084CBA3 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B17A0D17BB35C00084CBA3 /* Carbon.framework */; };
 		58B17A0F17BB35DC0084CBA3 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B17A0D17BB35C00084CBA3 /* Carbon.framework */; };
+		58B17A1617BDCB230084CBA3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B17A1517BDCB230084CBA3 /* Cocoa.framework */; };
+		58B17A2017BDCB230084CBA3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58B17A1E17BDCB230084CBA3 /* InfoPlist.strings */; };
+		58B17A2217BDCB230084CBA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B17A2117BDCB230084CBA3 /* main.m */; };
+		58B17A2617BDCB230084CBA3 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 58B17A2417BDCB230084CBA3 /* Credits.rtf */; };
+		58B17A2917BDCB230084CBA3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B17A2817BDCB230084CBA3 /* AppDelegate.m */; };
+		58B17A2C17BDCB230084CBA3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58B17A2A17BDCB230084CBA3 /* MainMenu.xib */; };
+		58B17A3117BDD7490084CBA3 /* libCDOForceKeyboardLayout.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B179E117BB32C20084CBA3 /* libCDOForceKeyboardLayout.a */; };
+		58B17A3317BDD7DF0084CBA3 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B17A0D17BB35C00084CBA3 /* Carbon.framework */; };
+		58B17A3917BDDC440084CBA3 /* CDOKeyboardLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B17A3717BDDC440084CBA3 /* CDOKeyboardLayout.h */; };
+		58B17A3A17BDDC440084CBA3 /* CDOKeyboardLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B17A3817BDDC440084CBA3 /* CDOKeyboardLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		58B179F917BB32C20084CBA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58B179D917BB32C20084CBA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58B179E017BB32C20084CBA3;
+			remoteInfo = CDOForceKeyboardLayout;
+		};
+		58B17A3517BDD8250084CBA3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 58B179D917BB32C20084CBA3 /* Project object */;
 			proxyType = 1;
@@ -38,6 +55,21 @@
 		58B17A0217BB32C20084CBA3 /* CDOForceKeyboardLayoutTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDOForceKeyboardLayoutTests.h; sourceTree = "<group>"; };
 		58B17A0317BB32C20084CBA3 /* CDOForceKeyboardLayoutTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDOForceKeyboardLayoutTests.m; sourceTree = "<group>"; };
 		58B17A0D17BB35C00084CBA3 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		58B17A1417BDCB230084CBA3 /* CDOForceKeyboardLayoutDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CDOForceKeyboardLayoutDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		58B17A1517BDCB230084CBA3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		58B17A1817BDCB230084CBA3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		58B17A1917BDCB230084CBA3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		58B17A1A17BDCB230084CBA3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		58B17A1D17BDCB230084CBA3 /* CDOForceKeyboardLayoutDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CDOForceKeyboardLayoutDemo-Info.plist"; sourceTree = "<group>"; };
+		58B17A1F17BDCB230084CBA3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		58B17A2117BDCB230084CBA3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		58B17A2317BDCB230084CBA3 /* CDOForceKeyboardLayoutDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CDOForceKeyboardLayoutDemo-Prefix.pch"; sourceTree = "<group>"; };
+		58B17A2517BDCB230084CBA3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		58B17A2717BDCB230084CBA3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		58B17A2817BDCB230084CBA3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		58B17A2B17BDCB230084CBA3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		58B17A3717BDDC440084CBA3 /* CDOKeyboardLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDOKeyboardLayout.h; sourceTree = "<group>"; };
+		58B17A3817BDDC440084CBA3 /* CDOKeyboardLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDOKeyboardLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +91,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		58B17A1117BDCB230084CBA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58B17A1617BDCB230084CBA3 /* Cocoa.framework in Frameworks */,
+				58B17A3317BDD7DF0084CBA3 /* Carbon.framework in Frameworks */,
+				58B17A3117BDD7490084CBA3 /* libCDOForceKeyboardLayout.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -67,6 +109,7 @@
 			children = (
 				58B179EA17BB32C20084CBA3 /* CDOForceKeyboardLayout */,
 				58B179FC17BB32C20084CBA3 /* CDOForceKeyboardLayoutTests */,
+				58B17A1B17BDCB230084CBA3 /* CDOForceKeyboardLayoutDemo */,
 				58B179E317BB32C20084CBA3 /* Frameworks */,
 				58B179E217BB32C20084CBA3 /* Products */,
 			);
@@ -77,6 +120,7 @@
 			children = (
 				58B179E117BB32C20084CBA3 /* libCDOForceKeyboardLayout.a */,
 				58B179F517BB32C20084CBA3 /* CDOForceKeyboardLayoutTests.octest */,
+				58B17A1417BDCB230084CBA3 /* CDOForceKeyboardLayoutDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +130,8 @@
 			children = (
 				58B17A0D17BB35C00084CBA3 /* Carbon.framework */,
 				58B179F617BB32C20084CBA3 /* SenTestingKit.framework */,
+				58B17A1517BDCB230084CBA3 /* Cocoa.framework */,
+				58B17A1717BDCB230084CBA3 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -95,6 +141,8 @@
 			children = (
 				58B179ED17BB32C20084CBA3 /* CDOForceKeyboardLayoutController.h */,
 				58B179EE17BB32C20084CBA3 /* CDOForceKeyboardLayoutController.m */,
+				58B17A3717BDDC440084CBA3 /* CDOKeyboardLayout.h */,
+				58B17A3817BDDC440084CBA3 /* CDOKeyboardLayout.m */,
 				58B179EB17BB32C20084CBA3 /* Supporting Files */,
 			);
 			path = CDOForceKeyboardLayout;
@@ -127,6 +175,39 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		58B17A1717BDCB230084CBA3 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58B17A1817BDCB230084CBA3 /* AppKit.framework */,
+				58B17A1917BDCB230084CBA3 /* CoreData.framework */,
+				58B17A1A17BDCB230084CBA3 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		58B17A1B17BDCB230084CBA3 /* CDOForceKeyboardLayoutDemo */ = {
+			isa = PBXGroup;
+			children = (
+				58B17A2717BDCB230084CBA3 /* AppDelegate.h */,
+				58B17A2817BDCB230084CBA3 /* AppDelegate.m */,
+				58B17A2A17BDCB230084CBA3 /* MainMenu.xib */,
+				58B17A1C17BDCB230084CBA3 /* Supporting Files */,
+			);
+			path = CDOForceKeyboardLayoutDemo;
+			sourceTree = "<group>";
+		};
+		58B17A1C17BDCB230084CBA3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				58B17A1D17BDCB230084CBA3 /* CDOForceKeyboardLayoutDemo-Info.plist */,
+				58B17A1E17BDCB230084CBA3 /* InfoPlist.strings */,
+				58B17A2117BDCB230084CBA3 /* main.m */,
+				58B17A2317BDCB230084CBA3 /* CDOForceKeyboardLayoutDemo-Prefix.pch */,
+				58B17A2417BDCB230084CBA3 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -134,6 +215,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58B17A3917BDDC440084CBA3 /* CDOKeyboardLayout.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +258,24 @@
 			productReference = 58B179F517BB32C20084CBA3 /* CDOForceKeyboardLayoutTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		58B17A1317BDCB230084CBA3 /* CDOForceKeyboardLayoutDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58B17A2D17BDCB230084CBA3 /* Build configuration list for PBXNativeTarget "CDOForceKeyboardLayoutDemo" */;
+			buildPhases = (
+				58B17A1017BDCB230084CBA3 /* Sources */,
+				58B17A1117BDCB230084CBA3 /* Frameworks */,
+				58B17A1217BDCB230084CBA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				58B17A3617BDD8250084CBA3 /* PBXTargetDependency */,
+			);
+			name = CDOForceKeyboardLayoutDemo;
+			productName = CDOForceKeyboardLayoutDemo;
+			productReference = 58B17A1417BDCB230084CBA3 /* CDOForceKeyboardLayoutDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -199,6 +299,7 @@
 			targets = (
 				58B179E017BB32C20084CBA3 /* CDOForceKeyboardLayout */,
 				58B179F417BB32C20084CBA3 /* CDOForceKeyboardLayoutTests */,
+				58B17A1317BDCB230084CBA3 /* CDOForceKeyboardLayoutDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -209,6 +310,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				58B17A0117BB32C20084CBA3 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58B17A1217BDCB230084CBA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58B17A2017BDCB230084CBA3 /* InfoPlist.strings in Resources */,
+				58B17A2617BDCB230084CBA3 /* Credits.rtf in Resources */,
+				58B17A2C17BDCB230084CBA3 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58B179EF17BB32C20084CBA3 /* CDOForceKeyboardLayoutController.m in Sources */,
+				58B17A3A17BDDC440084CBA3 /* CDOKeyboardLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +359,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		58B17A1017BDCB230084CBA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58B17A2217BDCB230084CBA3 /* main.m in Sources */,
+				58B17A2917BDCB230084CBA3 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -254,6 +375,11 @@
 			isa = PBXTargetDependency;
 			target = 58B179E017BB32C20084CBA3 /* CDOForceKeyboardLayout */;
 			targetProxy = 58B179F917BB32C20084CBA3 /* PBXContainerItemProxy */;
+		};
+		58B17A3617BDD8250084CBA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 58B179E017BB32C20084CBA3 /* CDOForceKeyboardLayout */;
+			targetProxy = 58B17A3517BDD8250084CBA3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -264,6 +390,30 @@
 				58B17A0017BB32C20084CBA3 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		58B17A1E17BDCB230084CBA3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58B17A1F17BDCB230084CBA3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		58B17A2417BDCB230084CBA3 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58B17A2517BDCB230084CBA3 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		58B17A2A17BDCB230084CBA3 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58B17A2B17BDCB230084CBA3 /* en */,
+			);
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -372,6 +522,35 @@
 			};
 			name = Release;
 		};
+		58B17A2E17BDCB230084CBA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CDOForceKeyboardLayoutDemo/CDOForceKeyboardLayoutDemo-Prefix.pch";
+				INFOPLIST_FILE = "CDOForceKeyboardLayoutDemo/CDOForceKeyboardLayoutDemo-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-Objc",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		58B17A2F17BDCB230084CBA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CDOForceKeyboardLayoutDemo/CDOForceKeyboardLayoutDemo-Prefix.pch";
+				INFOPLIST_FILE = "CDOForceKeyboardLayoutDemo/CDOForceKeyboardLayoutDemo-Info.plist";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -397,6 +576,14 @@
 			buildConfigurations = (
 				58B17A0B17BB32C20084CBA3 /* Debug */,
 				58B17A0C17BB32C20084CBA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		58B17A2D17BDCB230084CBA3 /* Build configuration list for PBXNativeTarget "CDOForceKeyboardLayoutDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B17A2E17BDCB230084CBA3 /* Debug */,
+				58B17A2F17BDCB230084CBA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

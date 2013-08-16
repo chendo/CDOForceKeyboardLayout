@@ -7,6 +7,8 @@
  */
 
 #import "CDOForceKeyboardLayoutTests.h"
+#import "CDOForceKeyboardLayoutController.h"
+#import "CDOKeyboardLayout.h"
 
 @interface CDOForceKeyboardLayoutTests () {
     CDOForceKeyboardLayoutController *controller;
@@ -35,24 +37,24 @@
 
 - (void)testSavingAndLoadingLayouts
 {
-    TISInputSourceRef layout = (__bridge TISInputSourceRef)[controller availableKeyboardLayouts][0];
+    CDOKeyboardLayout *layout = [controller availableKeyboardLayouts][0];
     [controller setForceKeyboardLayout:layout];
     
-    TISInputSourceRef loadedLayout = [controller forceKeyboardLayout];
-    STAssertTrue(CFEqual(layout, loadedLayout), @"Loaded layout matches saved layout");
+    CDOKeyboardLayout *loadedLayout = [controller forceKeyboardLayout];
+    STAssertTrue([layout isEqual:loadedLayout], @"Loaded layout matches saved layout");
 }
 
 - (void)testForcingLayoutAndRestoringLayout
 {
     TISInputSourceRef originalLayout = TISCopyCurrentKeyboardInputSource();
-        TISInputSourceRef layoutToForce = (__bridge TISInputSourceRef)[[controller availableKeyboardLayouts] lastObject];
+    CDOKeyboardLayout *layoutToForce = [[controller availableKeyboardLayouts] lastObject];
 
     [controller setForceKeyboardLayout:layoutToForce];
     [controller activate];
     
     TISInputSourceRef currentLayout = TISCopyCurrentKeyboardInputSource();
     
-    STAssertTrue(CFEqual(currentLayout, layoutToForce), @"Active layout set to forced layout");
+    STAssertTrue(CFEqual(currentLayout, layoutToForce.inputSource), @"Active layout set to forced layout");
     
     CFRelease(currentLayout);
     [controller deactivate];
