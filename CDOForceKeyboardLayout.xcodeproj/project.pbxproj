@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		58B179E517BB32C20084CBA3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B179E417BB32C20084CBA3 /* Cocoa.framework */; };
-		58B179EF17BB32C20084CBA3 /* CDOForceKeyboardLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B179EE17BB32C20084CBA3 /* CDOForceKeyboardLayout.m */; };
+		58B179EF17BB32C20084CBA3 /* CDOForceKeyboardLayoutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B179EE17BB32C20084CBA3 /* CDOForceKeyboardLayoutController.m */; };
 		58B179F717BB32C20084CBA3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B179F617BB32C20084CBA3 /* SenTestingKit.framework */; };
-		58B179F817BB32C20084CBA3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B179E417BB32C20084CBA3 /* Cocoa.framework */; };
 		58B179FB17BB32C20084CBA3 /* libCDOForceKeyboardLayout.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B179E117BB32C20084CBA3 /* libCDOForceKeyboardLayout.a */; };
 		58B17A0117BB32C20084CBA3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58B179FF17BB32C20084CBA3 /* InfoPlist.strings */; };
 		58B17A0417BB32C20084CBA3 /* CDOForceKeyboardLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B17A0317BB32C20084CBA3 /* CDOForceKeyboardLayoutTests.m */; };
+		58B17A0E17BB35C00084CBA3 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B17A0D17BB35C00084CBA3 /* Carbon.framework */; };
+		58B17A0F17BB35DC0084CBA3 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B17A0D17BB35C00084CBA3 /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,19 +28,16 @@
 
 /* Begin PBXFileReference section */
 		58B179E117BB32C20084CBA3 /* libCDOForceKeyboardLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCDOForceKeyboardLayout.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		58B179E417BB32C20084CBA3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		58B179E717BB32C20084CBA3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		58B179E817BB32C20084CBA3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		58B179E917BB32C20084CBA3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58B179EC17BB32C20084CBA3 /* CDOForceKeyboardLayout-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CDOForceKeyboardLayout-Prefix.pch"; sourceTree = "<group>"; };
-		58B179ED17BB32C20084CBA3 /* CDOForceKeyboardLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDOForceKeyboardLayout.h; sourceTree = "<group>"; };
-		58B179EE17BB32C20084CBA3 /* CDOForceKeyboardLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDOForceKeyboardLayout.m; sourceTree = "<group>"; };
+		58B179ED17BB32C20084CBA3 /* CDOForceKeyboardLayoutController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDOForceKeyboardLayoutController.h; sourceTree = "<group>"; };
+		58B179EE17BB32C20084CBA3 /* CDOForceKeyboardLayoutController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDOForceKeyboardLayoutController.m; sourceTree = "<group>"; };
 		58B179F517BB32C20084CBA3 /* CDOForceKeyboardLayoutTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CDOForceKeyboardLayoutTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		58B179F617BB32C20084CBA3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		58B179FE17BB32C20084CBA3 /* CDOForceKeyboardLayoutTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CDOForceKeyboardLayoutTests-Info.plist"; sourceTree = "<group>"; };
 		58B17A0017BB32C20084CBA3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		58B17A0217BB32C20084CBA3 /* CDOForceKeyboardLayoutTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDOForceKeyboardLayoutTests.h; sourceTree = "<group>"; };
 		58B17A0317BB32C20084CBA3 /* CDOForceKeyboardLayoutTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDOForceKeyboardLayoutTests.m; sourceTree = "<group>"; };
+		58B17A0D17BB35C00084CBA3 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58B179E517BB32C20084CBA3 /* Cocoa.framework in Frameworks */,
+				58B17A0E17BB35C00084CBA3 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,8 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58B17A0F17BB35DC0084CBA3 /* Carbon.framework in Frameworks */,
 				58B179F717BB32C20084CBA3 /* SenTestingKit.framework in Frameworks */,
-				58B179F817BB32C20084CBA3 /* Cocoa.framework in Frameworks */,
 				58B179FB17BB32C20084CBA3 /* libCDOForceKeyboardLayout.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,28 +84,17 @@
 		58B179E317BB32C20084CBA3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				58B179E417BB32C20084CBA3 /* Cocoa.framework */,
+				58B17A0D17BB35C00084CBA3 /* Carbon.framework */,
 				58B179F617BB32C20084CBA3 /* SenTestingKit.framework */,
-				58B179E617BB32C20084CBA3 /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		58B179E617BB32C20084CBA3 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				58B179E717BB32C20084CBA3 /* AppKit.framework */,
-				58B179E817BB32C20084CBA3 /* CoreData.framework */,
-				58B179E917BB32C20084CBA3 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		58B179EA17BB32C20084CBA3 /* CDOForceKeyboardLayout */ = {
 			isa = PBXGroup;
 			children = (
-				58B179ED17BB32C20084CBA3 /* CDOForceKeyboardLayout.h */,
-				58B179EE17BB32C20084CBA3 /* CDOForceKeyboardLayout.m */,
+				58B179ED17BB32C20084CBA3 /* CDOForceKeyboardLayoutController.h */,
+				58B179EE17BB32C20084CBA3 /* CDOForceKeyboardLayoutController.m */,
 				58B179EB17BB32C20084CBA3 /* Supporting Files */,
 			);
 			path = CDOForceKeyboardLayout;
@@ -249,7 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58B179EF17BB32C20084CBA3 /* CDOForceKeyboardLayout.m in Sources */,
+				58B179EF17BB32C20084CBA3 /* CDOForceKeyboardLayoutController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

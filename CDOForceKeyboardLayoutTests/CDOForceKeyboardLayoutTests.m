@@ -1,12 +1,17 @@
-//
-//  CDOForceKeyboardLayoutTests.m
-//  CDOForceKeyboardLayoutTests
-//
-//  Created by Jack Chen on 14/08/13.
-//  Copyright (c) 2013 chendo. All rights reserved.
-//
+/*
+ * This file is part of the CDOForceKeyboardLayout package.
+ * (c) 2013 Jack Chen (chendo)
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 #import "CDOForceKeyboardLayoutTests.h"
+
+@interface CDOForceKeyboardLayoutTests () {
+    CDOForceKeyboardLayoutController *controller;
+}
+@end
 
 @implementation CDOForceKeyboardLayoutTests
 
@@ -14,19 +19,48 @@
 {
     [super setUp];
     
-    // Set-up code here.
+    controller = [[CDOForceKeyboardLayoutController alloc] init];
 }
 
 - (void)tearDown
 {
-    // Tear-down code here.
-    
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testListLayouts
 {
-    STFail(@"Unit tests are not implemented yet in CDOForceKeyboardLayoutTests");
+    NSArray *layouts = [controller availableKeyboardLayouts];
+    STAssertTrue(layouts != nil, @"Layouts should not be nil");
+}
+
+- (void)testSavingAndLoadingLayouts
+{
+    TISInputSourceRef layout = (__bridge TISInputSourceRef)[controller availableKeyboardLayouts][0];
+    [controller setForceKeyboardLayout:layout];
+    
+    TISInputSourceRef loadedLayout = [controller forceKeyboardLayout];
+    STAssertTrue(CFEqual(layout, loadedLayout), @"Loaded layout matches saved layout");
+}
+
+- (void)testForcingLayoutAndRestoringLayout
+{
+    TISInputSourceRef originalLayout = TISCopyCurrentKeyboardInputSource();
+        TISInputSourceRef layoutToForce = (__bridge TISInputSourceRef)[[controller availableKeyboardLayouts] lastObject];
+
+    [controller setForceKeyboardLayout:layoutToForce];
+    [controller activate];
+    
+    TISInputSourceRef currentLayout = TISCopyCurrentKeyboardInputSource();
+    
+    STAssertTrue(CFEqual(currentLayout, layoutToForce), @"Active layout set to forced layout");
+    
+    CFRelease(currentLayout);
+    [controller deactivate];
+    currentLayout = TISCopyCurrentKeyboardInputSource();
+    
+    STAssertTrue(CFEqual(originalLayout, currentLayout), @"Restored original layout");
+    
+    CFRelease(currentLayout);
 }
 
 @end
