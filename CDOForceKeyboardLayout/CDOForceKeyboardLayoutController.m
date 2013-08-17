@@ -18,8 +18,6 @@
 
 @implementation CDOForceKeyboardLayoutController
 
-static NSString* const kCDOForceKeyboardLayoutDefaultsKey = @"ForceKeyboardLayout";
-
 - (instancetype)init {
     self = [super init];
     if (self) {

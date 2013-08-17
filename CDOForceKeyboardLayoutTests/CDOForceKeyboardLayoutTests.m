@@ -12,7 +12,7 @@
 
 @interface CDOForceKeyboardLayoutTests () {
     CDOForceKeyboardLayoutController *controller;
-    TISInputSourceRef originalLayout;
+    TISInputSourceRef preTestLayout;
 }
 @end
 
@@ -22,7 +22,7 @@
 {
     [super setUp];
     
-    originalLayout = TISCopyCurrentKeyboardInputSource();
+    preTestLayout = TISCopyCurrentKeyboardInputSource();
     controller = [[CDOForceKeyboardLayoutController alloc] init];
 }
 
@@ -30,7 +30,7 @@
 {
     [super tearDown];
     
-    TISSelectInputSource(originalLayout);
+    TISSelectInputSource(preTestLayout);
 }
 
 - (void)testListLayouts
@@ -39,13 +39,29 @@
     STAssertTrue(layouts != nil, @"Layouts should not be nil");
 }
 
-- (void)testSavingAndLoadingLayouts
+- (void)testSavingLayout
 {
     CDOKeyboardLayout *layout = [controller availableKeyboardLayouts][0];
     controller.forceKeyboardLayout = layout;
+
+    NSString *inputSourceID = [[NSUserDefaults standardUserDefaults] objectForKey:kCDOForceKeyboardLayoutDefaultsKey];
     
-    CDOKeyboardLayout *loadedLayout = controller.forceKeyboardLayout;
-    STAssertTrue([layout isEqual:loadedLayout], @"Loaded layout matches saved layout");
+    STAssertEqualObjects(inputSourceID, layout.inputSourceID, @"Saves inputSourceID to UserDefaults");
+}
+
+- (void)testLoadingLayout
+{
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kCDOForceKeyboardLayoutDefaultsKey];
+    
+    STAssertNil(controller.forceKeyboardLayout, @"Layout should be nil");
+    
+    CDOKeyboardLayout *layout = [controller availableKeyboardLayouts][0];
+
+    [[NSUserDefaults standardUserDefaults] setObject:layout.inputSourceID forKey:kCDOForceKeyboardLayoutDefaultsKey];
+    
+    STAssertNotNil(controller.forceKeyboardLayout, @"Layout should not be nil");
+    STAssertEqualObjects(layout.inputSourceID, controller.forceKeyboardLayout.inputSourceID, @"Layout is loaded from defaults");
+
 }
 
 - (void)testForcingLayoutAndRestoringLayout

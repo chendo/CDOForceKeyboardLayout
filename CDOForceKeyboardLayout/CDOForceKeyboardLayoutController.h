@@ -11,6 +11,8 @@
 
 @class CDOKeyboardLayout;
 
+static NSString* const kCDOForceKeyboardLayoutDefaultsKey = @"ForceKeyboardLayout";
+
 @interface CDOForceKeyboardLayoutController : NSObject
 
 - (BOOL)activate;
