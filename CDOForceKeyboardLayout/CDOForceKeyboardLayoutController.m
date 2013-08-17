@@ -25,7 +25,7 @@
         [self updateAvailableKeyboardLayouts];
         
         _keyPath = kCDOForceKeyboardLayoutDefaultsKey;
-        [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:_keyPath options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:nil];
+        [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:_keyPath options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial) context:nil];
     }
     return self;
 }
