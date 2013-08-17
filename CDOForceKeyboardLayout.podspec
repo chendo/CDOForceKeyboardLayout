@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CDOForceKeyboardLayout"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "Easily add 'Force Keyboard Layout' functionality into your OSX app"
 
   s.description  = <<-DESC
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.author       =  "Jack Chen (chendo)"
 
   s.platform = :osx, '10.7'
-  s.source       = { :git => "https://github.com/chendo/CDOForceKeyboardLayout.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/chendo/CDOForceKeyboardLayout.git", :tag => "0.0.2" }
 
   s.source_files  = 'CDOForceKeyboardLayout', 'Classes/**/*.{h,m}'
   s.requires_arc = true
