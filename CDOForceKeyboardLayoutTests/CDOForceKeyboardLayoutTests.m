@@ -12,6 +12,7 @@
 
 @interface CDOForceKeyboardLayoutTests () {
     CDOForceKeyboardLayoutController *controller;
+    TISInputSourceRef originalLayout;
 }
 @end
 
@@ -21,12 +22,15 @@
 {
     [super setUp];
     
+    originalLayout = TISCopyCurrentKeyboardInputSource();
     controller = [[CDOForceKeyboardLayoutController alloc] init];
 }
 
 - (void)tearDown
 {
     [super tearDown];
+    
+    TISSelectInputSource(originalLayout);
 }
 
 - (void)testListLayouts
@@ -38,9 +42,9 @@
 - (void)testSavingAndLoadingLayouts
 {
     CDOKeyboardLayout *layout = [controller availableKeyboardLayouts][0];
-    [controller setForceKeyboardLayout:layout];
+    controller.forceKeyboardLayout = layout;
     
-    CDOKeyboardLayout *loadedLayout = [controller forceKeyboardLayout];
+    CDOKeyboardLayout *loadedLayout = controller.forceKeyboardLayout;
     STAssertTrue([layout isEqual:loadedLayout], @"Loaded layout matches saved layout");
 }
 
@@ -63,6 +67,18 @@
     STAssertTrue(CFEqual(originalLayout, currentLayout), @"Restored original layout");
     
     CFRelease(currentLayout);
+}
+
+- (void)testMultipleInstances
+{
+    CDOForceKeyboardLayoutController *secondController = [[CDOForceKeyboardLayoutController alloc] init];
+    
+    STAssertEqualObjects(controller.forceKeyboardLayout, secondController.forceKeyboardLayout, @"Same layout across multiple controllers");
+    
+    NSUInteger randomIndex = arc4random_uniform(controller.availableKeyboardLayouts.count);
+    controller.forceKeyboardLayout = controller.availableKeyboardLayouts[randomIndex];
+
+    STAssertEqualObjects(controller.forceKeyboardLayout, secondController.forceKeyboardLayout, @"Same layout across multiple controllers");
 }
 
 @end

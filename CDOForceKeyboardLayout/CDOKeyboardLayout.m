@@ -23,7 +23,12 @@
 
 - (NSString *)label
 {
-    return (__bridge NSString*)TISGetInputSourceProperty(self.inputSource, kTISPropertyLocalizedName);
+    return (__bridge NSString *)TISGetInputSourceProperty(self.inputSource, kTISPropertyLocalizedName);
+}
+
+- (NSString *)inputSourceID
+{
+    return (__bridge NSString *)TISGetInputSourceProperty(self.inputSource, kTISPropertyInputSourceID);
 }
 
 - (void)dealloc

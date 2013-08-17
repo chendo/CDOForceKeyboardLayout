@@ -12,8 +12,10 @@
 @interface CDOKeyboardLayout : NSObject
 
 - (instancetype)initWithInputSource:(TISInputSourceRef)inputSource;
-- (NSString *)label;
+
 
 @property (nonatomic, assign) TISInputSourceRef inputSource;
+@property (readonly) NSString *label;
+@property (readonly) NSString *inputSourceID;
 
 @end

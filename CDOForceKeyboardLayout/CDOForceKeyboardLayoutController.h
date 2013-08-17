@@ -16,7 +16,7 @@
 - (BOOL)activate;
 - (BOOL)deactivate;
 
-@property (assign, nonatomic) CDOKeyboardLayout *forceKeyboardLayout;
+@property (retain, nonatomic) CDOKeyboardLayout *forceKeyboardLayout;
 @property (retain, nonatomic) NSArray *availableKeyboardLayouts;
 
 @end

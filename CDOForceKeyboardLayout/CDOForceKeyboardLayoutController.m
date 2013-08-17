@@ -10,7 +10,8 @@
 #import "CDOKeyboardLayout.h"
 
 @interface CDOForceKeyboardLayoutController () {
-    TISInputSourceRef savedKeyboardLayout;
+    TISInputSourceRef _savedKeyboardLayout;
+    NSString *_keyPath;
 }
 
 @end
@@ -22,34 +23,41 @@ static NSString* const kCDOForceKeyboardLayoutDefaultsKey = @"ForceKeyboardLayou
 - (instancetype)init {
     self = [super init];
     if (self) {
-        savedKeyboardLayout = NULL;
+        _savedKeyboardLayout = NULL;
         [self updateAvailableKeyboardLayouts];
+        
+        _keyPath = kCDOForceKeyboardLayoutDefaultsKey;
+        [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:_keyPath options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:nil];
     }
     return self;
 }
 
-- (void)setForceKeyboardLayout:(CDOKeyboardLayout *)layout
+- (void)dealloc
 {
-    [self willChangeValueForKey:@"forceKeyboardLayout"];
-    NSString *inputSourceID;
-    
-    if (layout) {
-        inputSourceID = (__bridge NSString *)TISGetInputSourceProperty(layout.inputSource, kTISPropertyInputSourceID);
-    }
-    else {
-        inputSourceID = nil;
-    }
-
-    [[NSUserDefaults standardUserDefaults] setObject:inputSourceID forKey:kCDOForceKeyboardLayoutDefaultsKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [self didChangeValueForKey:@"forceKeyboardLayout"];
-
+    [[NSUserDefaults standardUserDefaults] removeObserver:self forKeyPath:_keyPath];
 }
 
-- (CDOKeyboardLayout *)forceKeyboardLayout
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    NSString *inputSourceID = [[NSUserDefaults standardUserDefaults] objectForKey:kCDOForceKeyboardLayoutDefaultsKey];
-    
+    if (![_keyPath isEqualToString:keyPath]) {
+        return;
+    }
+
+    NSString *value = change[NSKeyValueChangeNewKey];
+
+    [self willChangeValueForKey:@"forceKeyboardLayout"];
+    if (value) {
+        CDOKeyboardLayout *layout = [self keyboardLayoutForInputSourceID:value];
+        _forceKeyboardLayout = layout;
+    }
+    else {
+        _forceKeyboardLayout = nil;
+    }
+    [self didChangeValueForKey:@"forceKeyboardLayout"];    
+}
+
+- (CDOKeyboardLayout *)keyboardLayoutForInputSourceID:(NSString *)inputSourceID
+{
     if (inputSourceID == NULL) {
         return NULL;
     }
@@ -69,7 +77,23 @@ static NSString* const kCDOForceKeyboardLayoutDefaultsKey = @"ForceKeyboardLayou
         // Somehow we have multiple matching layouts
         NSLog(@"ForceKeyboardLayout: Managed to find multiple layouts with InputModeID %@, using first found", inputSourceID);
     }
+    
     return [[CDOKeyboardLayout alloc] initWithInputSource:(TISInputSourceRef)layouts[0]];
+}
+
+- (void)setForceKeyboardLayout:(CDOKeyboardLayout *)layout
+{
+    NSString *inputSourceID;
+    
+    if (layout) {
+        inputSourceID = layout.inputSourceID;
+    }
+    else {
+        inputSourceID = nil;
+    }
+
+    [[NSUserDefaults standardUserDefaults] setObject:inputSourceID forKey:kCDOForceKeyboardLayoutDefaultsKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)updateAvailableKeyboardLayouts
@@ -92,11 +116,11 @@ static NSString* const kCDOForceKeyboardLayoutDefaultsKey = @"ForceKeyboardLayou
 
 - (BOOL)activate
 {
-    if (savedKeyboardLayout != NULL) {
+    if (_savedKeyboardLayout != NULL) {
         // We don't want to lose a saved layout if activateForceKeyboardLayout is called twice
         return NO;
     }
-    savedKeyboardLayout = TISCopyCurrentKeyboardInputSource(); // TODO: Investigate difference between this and TISCopyCurrentKeyboardLayoutInputSource
+    _savedKeyboardLayout = TISCopyCurrentKeyboardInputSource(); // TODO: Investigate difference between this and TISCopyCurrentKeyboardLayoutInputSource
     
     OSStatus status = TISSelectInputSource([self forceKeyboardLayout].inputSource);
     if (status == noErr) {
@@ -109,14 +133,14 @@ static NSString* const kCDOForceKeyboardLayoutDefaultsKey = @"ForceKeyboardLayou
 
 - (BOOL)deactivate
 {
-    if (savedKeyboardLayout == NULL) {
+    if (_savedKeyboardLayout == NULL) {
         return NO;
     }
     
-    OSStatus status = TISSelectInputSource(savedKeyboardLayout);
+    OSStatus status = TISSelectInputSource(_savedKeyboardLayout);
     if (status == noErr) {
-        CFRelease(savedKeyboardLayout);
-        savedKeyboardLayout = NULL;
+        CFRelease(_savedKeyboardLayout);
+        _savedKeyboardLayout = NULL;
         return YES;
     }
     else {
