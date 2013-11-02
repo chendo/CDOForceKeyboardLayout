@@ -114,6 +114,10 @@
 
 - (BOOL)activate
 {
+    if (_forceKeyboardLayout == NULL) {
+        return YES;
+    }
+
     if (_savedKeyboardLayout != NULL) {
         // We don't want to lose a saved layout if activateForceKeyboardLayout is called twice
         return NO;
@@ -131,6 +135,10 @@
 
 - (BOOL)deactivate
 {
+    if (_forceKeyboardLayout == NULL) {
+        return YES;
+    }
+    
     if (_savedKeyboardLayout == NULL) {
         return NO;
     }
